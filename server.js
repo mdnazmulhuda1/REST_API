@@ -2,6 +2,7 @@ const express = require('express');
 const colors = require('colors');
 const { urlencoded } = require('body-parser');
 const dotenv = require('dotenv').config();
+const userRouter = require('./routes/user');
 
 
 
@@ -16,6 +17,11 @@ const app = express();
 // express middlewares
 app.use(express.json());
 app.use(express.urlencoded( { extended : false } ));
+
+
+
+// routes api 
+app.use('/api/v1/user', userRouter);
 
 
 
